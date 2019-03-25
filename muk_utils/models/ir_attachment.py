@@ -27,9 +27,49 @@ from odoo.tools.mimetypes import guess_mimetype
 
 _logger = logging.getLogger(__name__)
 
-class Attachment(models.Model):
+class IrAttachment(models.Model):
     
     _inherit = 'ir.attachment'
+    
+    #----------------------------------------------------------
+    # Helper
+    #----------------------------------------------------------
+    
+    @api.model
+    def _get_datas_inital_vals(self):
+        return {
+            'store_fname': False,
+            'db_datas': False,
+        }
+    
+    @api.model
+    def _update_datas_vals(self, vals, attach, bin_data):
+        vals.update({
+            'file_size': len(bin_data),
+            'checksum': self._compute_checksum(bin_data),
+            'index_content': self._index(bin_data, attach.datas_fname, attach.mimetype),
+        })
+        return vals
+    
+    @api.model
+    def _get_datas_clean_vals(self, attach):
+        vals = {}
+        if attach.store_fname:
+            vals['store_fname'] = attach.store_fname
+        return vals
+    
+    @api.model
+    def _clean_datas_after_write(self, vals):
+        if 'store_fname' in vals:
+            self._file_delete(vals['store_fname'])
+   
+    #----------------------------------------------------------
+    # Actions
+    #----------------------------------------------------------
+    
+    @api.multi
+    def action_migrate(self):
+        self.migrate()
     
     #----------------------------------------------------------
     # Functions
@@ -48,6 +88,7 @@ class Attachment(models.Model):
             'file': ('store_fname', '=', False), 
         }
         record_domain = [
+            '&', ('type', '=', 'binary'),
             '&', storage_domain[self._storage()], 
             '|', ('res_field', '=', False), ('res_field', '!=', False)
         ]
@@ -66,9 +107,30 @@ class Attachment(models.Model):
     # Read
     #----------------------------------------------------------
     
+    @api.multi
     def _compute_mimetype(self, values):
         if self.env.context.get('migration') and len(self) == 1:
             return self.mimetype or 'application/octet-stream'
         else:
-            return super(Attachment, self)._compute_mimetype(values)
+            return super(IrAttachment, self)._compute_mimetype(values)
+        
+    #----------------------------------------------------------
+    # Create, Write, Delete
+    #----------------------------------------------------------
+    
+    @api.multi
+    def _inverse_datas(self):
+        location = self._storage()
+        for attach in self:
+            value = attach.datas
+            bin_data = base64.b64decode(value) if value else b''
+            vals = self._get_datas_inital_vals()
+            vals = self._update_datas_vals(vals, attach, bin_data)
+            if value and location != 'db':
+                vals['store_fname'] = self._file_write(value, vals['checksum'])
+            else:
+                vals['db_datas'] = value
+            clean_vals = self._get_datas_clean_vals(attach)
+            super(IrAttachment, attach.sudo()).write(vals)
+            self._clean_datas_after_write(clean_vals)
         

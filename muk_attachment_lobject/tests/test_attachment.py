@@ -27,16 +27,15 @@ _logger = logging.getLogger(__name__)
 
 class AttachmentTestCase(common.HttpCase):
     
-    at_install = False
-    post_install = True
-    
     def setUp(self):
         super(AttachmentTestCase, self).setUp()
         self.attachment = self.env['ir.attachment'].sudo()
-        self.param = self.env['ir.config_parameter'].sudo()
-        self.param.set_param('ir_attachment.location', 'lobject')
-        
+        self.params = self.env['ir.config_parameter'].sudo()
+        self.location = self.params.get_param('ir_attachment.location')
+        self.params.set_param('ir_attachment.location', 'lobject')
+
     def tearDown(self):
+        self.params.set_param('ir_attachment.location', self.location)
         super(AttachmentTestCase, self).tearDown()
     
     def test_attachment(self):

@@ -91,6 +91,7 @@ class ScssEditor(models.AbstractModel):
     
     def replace_content(self, url, xmlid, content):
         custom_url = self._get_custom_url(url, xmlid)
+        custom_view = self._get_custom_view(custom_url)
         custom_attachment = self._get_custom_attachment(custom_url)
         datas = base64.b64encode((content or "\n").encode("utf-8"))
         if custom_attachment.exists():
@@ -104,6 +105,7 @@ class ScssEditor(models.AbstractModel):
                 'datas_fname': url.split("/")[-1],
                 'url': custom_url,
             })
+        if not custom_view.exists():
             view_to_xpath = self.env["ir.ui.view"].get_related_views(
                 xmlid, bundles=True
             ).filtered(lambda v: v.arch.find(url) >= 0)
@@ -111,6 +113,7 @@ class ScssEditor(models.AbstractModel):
                 'name': custom_url,
                 'key': 'web_editor.scss_%s' % str(uuid.uuid4())[:6],
                 'mode': "extension",
+                'priority': view_to_xpath.priority,
                 'inherit_id': view_to_xpath.id,
                 'arch': """
                     <data inherit_id="%(inherit_xml_id)s" name="%(name)s">

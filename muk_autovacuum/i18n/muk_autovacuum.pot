@@ -4,10 +4,10 @@
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: Odoo Server 12.0alpha1\n"
+"Project-Id-Version: Odoo Server 12.0-20190128\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-08-15 15:09+0000\n"
-"PO-Revision-Date: 2018-08-15 15:09+0000\n"
+"POT-Creation-Date: 2019-02-27 13:36+0000\n"
+"PO-Revision-Date: 2019-02-27 13:36+0000\n"
 "Last-Translator: <>\n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
@@ -16,37 +16,42 @@ msgstr ""
 "Plural-Forms: \n"
 
 #. module: muk_autovacuum
-#: model:ir.ui.view,arch_db:muk_autovacuum.view_autovacuum_rule_form
+#: model_terms:ir.ui.view,arch_db:muk_autovacuum.view_autovacuum_rule_form
 msgid "<code>Warning</code>: Warning Exception to use with <code>raise</code>"
 msgstr ""
 
 #. module: muk_autovacuum
-#: model:ir.ui.view,arch_db:muk_autovacuum.view_autovacuum_rule_form
+#: model_terms:ir.ui.view,arch_db:muk_autovacuum.view_autovacuum_rule_form
+msgid "<code>b64encode</code>, <code>b64decode</code>: Base64 converter"
+msgstr ""
+
+#. module: muk_autovacuum
+#: model_terms:ir.ui.view,arch_db:muk_autovacuum.view_autovacuum_rule_form
 msgid "<code>date_format</code>, <code>datetime_format</code>: server date and time formats"
 msgstr ""
 
 #. module: muk_autovacuum
-#: model:ir.ui.view,arch_db:muk_autovacuum.view_autovacuum_rule_form
+#: model_terms:ir.ui.view,arch_db:muk_autovacuum.view_autovacuum_rule_form
 msgid "<code>env</code>: Odoo Environment on which the rule is triggered"
 msgstr ""
 
 #. module: muk_autovacuum
-#: model:ir.ui.view,arch_db:muk_autovacuum.view_autovacuum_rule_form
+#: model_terms:ir.ui.view,arch_db:muk_autovacuum.view_autovacuum_rule_form
 msgid "<code>logger.info(message)</code>: Python logging framework"
 msgstr ""
 
 #. module: muk_autovacuum
-#: model:ir.ui.view,arch_db:muk_autovacuum.view_autovacuum_rule_form
+#: model_terms:ir.ui.view,arch_db:muk_autovacuum.view_autovacuum_rule_form
 msgid "<code>model</code>: Odoo Model of the record on which the rule is triggered"
 msgstr ""
 
 #. module: muk_autovacuum
-#: model:ir.ui.view,arch_db:muk_autovacuum.view_autovacuum_rule_form
+#: model_terms:ir.ui.view,arch_db:muk_autovacuum.view_autovacuum_rule_form
 msgid "<code>time</code>, <code>datetime</code>, <code>dateutil</code>, <code>timezone</code>: useful Python libraries"
 msgstr ""
 
 #. module: muk_autovacuum
-#: model:ir.ui.view,arch_db:muk_autovacuum.view_autovacuum_rule_form
+#: model_terms:ir.ui.view,arch_db:muk_autovacuum.view_autovacuum_rule_form
 msgid "<code>uid</code>, <code>user</code>: User on which the rule is triggered"
 msgstr ""
 
@@ -56,7 +61,7 @@ msgid "Active"
 msgstr ""
 
 #. module: muk_autovacuum
-#: model:ir.ui.view,arch_db:muk_autovacuum.view_autovacuum_rule_search
+#: model_terms:ir.ui.view,arch_db:muk_autovacuum.view_autovacuum_rule_search
 msgid "All"
 msgstr ""
 
@@ -64,10 +69,15 @@ msgstr ""
 #: model:ir.actions.act_window,name:muk_autovacuum.action_autovacuum_rule
 #: model:ir.model,name:muk_autovacuum.model_muk_autovacuum_rules
 #: model:ir.ui.menu,name:muk_autovacuum.menu_autovacuum_rules
-#: model:ir.ui.view,arch_db:muk_autovacuum.view_autovacuum_rule_form
-#: model:ir.ui.view,arch_db:muk_autovacuum.view_autovacuum_rule_search
-#: model:ir.ui.view,arch_db:muk_autovacuum.view_autovacuum_rule_tree
+#: model_terms:ir.ui.view,arch_db:muk_autovacuum.view_autovacuum_rule_form
+#: model_terms:ir.ui.view,arch_db:muk_autovacuum.view_autovacuum_rule_search
+#: model_terms:ir.ui.view,arch_db:muk_autovacuum.view_autovacuum_rule_tree
 msgid "Auto Vacuum Rules"
+msgstr ""
+
+#. module: muk_autovacuum
+#: model:ir.model,name:muk_autovacuum.model_ir_autovacuum
+msgid "Automatic Vacuum"
 msgstr ""
 
 #. module: muk_autovacuum
@@ -81,7 +91,7 @@ msgid "Code Based"
 msgstr ""
 
 #. module: muk_autovacuum
-#: model:ir.ui.view,arch_db:muk_autovacuum.view_autovacuum_rule_form
+#: model_terms:ir.ui.view,arch_db:muk_autovacuum.view_autovacuum_rule_form
 msgid "Code Settings"
 msgstr ""
 
@@ -147,12 +157,12 @@ msgid "Domain Based"
 msgstr ""
 
 #. module: muk_autovacuum
-#: model:ir.ui.view,arch_db:muk_autovacuum.view_autovacuum_rule_form
+#: model_terms:ir.ui.view,arch_db:muk_autovacuum.view_autovacuum_rule_form
 msgid "Domain Settings"
 msgstr ""
 
 #. module: muk_autovacuum
-#: model:ir.ui.view,arch_db:muk_autovacuum.view_autovacuum_rule_form
+#: model_terms:ir.ui.view,arch_db:muk_autovacuum.view_autovacuum_rule_form
 msgid "Enter Python code here. Help about Python expression is available in the help tab of this document."
 msgstr ""
 
@@ -187,17 +197,17 @@ msgid "GC'd %s attachments from %s entries"
 msgstr ""
 
 #. module: muk_autovacuum
-#: model:ir.ui.view,arch_db:muk_autovacuum.view_autovacuum_rule_search
+#: model_terms:ir.ui.view,arch_db:muk_autovacuum.view_autovacuum_rule_search
 msgid "Group By"
 msgstr ""
 
 #. module: muk_autovacuum
-#: model:ir.ui.view,arch_db:muk_autovacuum.view_autovacuum_rule_form
+#: model_terms:ir.ui.view,arch_db:muk_autovacuum.view_autovacuum_rule_form
 msgid "Help"
 msgstr ""
 
 #. module: muk_autovacuum
-#: model:ir.ui.view,arch_db:muk_autovacuum.view_autovacuum_rule_form
+#: model_terms:ir.ui.view,arch_db:muk_autovacuum.view_autovacuum_rule_form
 msgid "Help with Python expressions"
 msgstr ""
 
@@ -209,6 +219,12 @@ msgstr ""
 #. module: muk_autovacuum
 #: model:ir.model.fields,field_description:muk_autovacuum.field_muk_autovacuum_rules__id
 msgid "ID"
+msgstr ""
+
+#. module: muk_autovacuum
+#: code:addons/muk_autovacuum/models/rules.py:287
+#, python-format
+msgid "Import Template for Auto Vacuum Rules"
 msgstr ""
 
 #. module: muk_autovacuum
@@ -233,7 +249,7 @@ msgstr ""
 
 #. module: muk_autovacuum
 #: model:ir.model.fields,field_description:muk_autovacuum.field_muk_autovacuum_rules__model
-#: model:ir.ui.view,arch_db:muk_autovacuum.view_autovacuum_rule_search
+#: model_terms:ir.ui.view,arch_db:muk_autovacuum.view_autovacuum_rule_search
 msgid "Model"
 msgstr ""
 
@@ -293,7 +309,7 @@ msgid "Rule Type"
 msgstr ""
 
 #. module: muk_autovacuum
-#: code:addons/muk_autovacuum/models/rules.py:318
+#: code:addons/muk_autovacuum/models/rules.py:327
 #, python-format
 msgid "Rule validation has failed!"
 msgstr ""
@@ -305,7 +321,6 @@ msgstr ""
 
 #. module: muk_autovacuum
 #: model:ir.model.fields,field_description:muk_autovacuum.field_muk_autovacuum_rules__size
-#: model:ir.model.fields,field_description:muk_autovacuum.field_muk_autovacuum_rules__size_parameter_value
 msgid "Size"
 msgstr ""
 
@@ -320,13 +335,18 @@ msgid "Size Order"
 msgstr ""
 
 #. module: muk_autovacuum
-#: model:ir.ui.view,arch_db:muk_autovacuum.view_autovacuum_rule_form
+#: model_terms:ir.ui.view,arch_db:muk_autovacuum.view_autovacuum_rule_form
 msgid "Size Settings"
 msgstr ""
 
 #. module: muk_autovacuum
 #: model:ir.model.fields,field_description:muk_autovacuum.field_muk_autovacuum_rules__size_type
 msgid "Size Type"
+msgstr ""
+
+#. module: muk_autovacuum
+#: model:ir.model.fields,field_description:muk_autovacuum.field_muk_autovacuum_rules__size_parameter_value
+msgid "Size Value"
 msgstr ""
 
 #. module: muk_autovacuum
@@ -351,7 +371,7 @@ msgid "Time Field"
 msgstr ""
 
 #. module: muk_autovacuum
-#: model:ir.ui.view,arch_db:muk_autovacuum.view_autovacuum_rule_form
+#: model_terms:ir.ui.view,arch_db:muk_autovacuum.view_autovacuum_rule_form
 msgid "Time Settings"
 msgstr ""
 
@@ -361,7 +381,7 @@ msgid "Time Unit"
 msgstr ""
 
 #. module: muk_autovacuum
-#: model:ir.ui.view,arch_db:muk_autovacuum.view_autovacuum_rule_form
+#: model_terms:ir.ui.view,arch_db:muk_autovacuum.view_autovacuum_rule_form
 msgid "Various fields may use Python code or Python expressions. The following variables can be used:"
 msgstr ""
 
@@ -376,12 +396,7 @@ msgid "Years"
 msgstr ""
 
 #. module: muk_autovacuum
-#: model:ir.ui.view,arch_db:muk_autovacuum.view_autovacuum_rule_form
+#: model_terms:ir.ui.view,arch_db:muk_autovacuum.view_autovacuum_rule_form
 msgid "e.g. Delete Logs after 30 Days"
-msgstr ""
-
-#. module: muk_autovacuum
-#: model:ir.model,name:muk_autovacuum.model_ir_autovacuum
-msgid "ir.autovacuum"
 msgstr ""
 

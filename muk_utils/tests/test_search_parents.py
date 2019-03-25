@@ -27,14 +27,14 @@ from odoo.tests import common
 _path = os.path.dirname(os.path.dirname(__file__))
 _logger = logging.getLogger(__name__)
 
-class AccessGroupsTestCase(common.TransactionCase):
+class SearchParentTestCase(common.TransactionCase):
     
     def setUp(self):
-        super(AccessGroupsTestCase, self).setUp()
+        super(SearchParentTestCase, self).setUp()
         self.model = self.env['res.partner.category']
         
     def tearDown(self):
-        super(AccessGroupsTestCase, self).tearDown()
+        super(SearchParentTestCase, self).tearDown()
     
     def _evaluate_parent_result(self, parents, records):
         for parent in parents:

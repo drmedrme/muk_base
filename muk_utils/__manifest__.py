@@ -16,10 +16,10 @@
 #    along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #
 ###################################################################################
-{
+{ 
     "name": "MuK Utils",
     "summary": """Utility Features""",
-    "version": '12.0.1.4.14',   
+    "version": '12.0.1.6.11',   
     "category": 'Extra Tools',   
     "license": "AGPL-3",
     "author": "MuK IT",
@@ -32,8 +32,10 @@
         "base_setup",
     ],
     "data": [
+        "actions/ir_attachment.xml",
+        "views/ir_attachment.xml",
         "views/mixins_groups.xml",
-        "views/res_config_settings_view.xml",
+        "views/res_config_settings.xml",
     ],
     "qweb": [
         "static/src/xml/*.xml",
@@ -45,6 +47,7 @@
         "python": [],
         "bin": [],
     },
+    "sequence": 3,
     "application": False,
     "installable": True,
     "auto_install": False,
